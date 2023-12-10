@@ -7,4 +7,10 @@ export class AppLoggerService extends ConsoleLogger {
 
     super.log(context, message);
   }
+
+  error(message: any, stackOrContext?: string) {
+    const entry = `${stackOrContext}\t${message}`;
+
+    super.error(message, stackOrContext);
+  }
 }
