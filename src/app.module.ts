@@ -12,7 +12,10 @@ import { APP_GUARD } from '@nestjs/core';
     UsersModule,
     DatabaseModule,
     EmployeesModule,
-    ThrottlerModule.forRoot([{ ttl: 60000, limit: 3 }]), // 3 requests every 60 seconds
+    ThrottlerModule.forRoot([
+      { name: 'short', ttl: 1000, limit: 3 }, // 3 requests every 1 second
+      { name: 'long', ttl: 60000, limit: 100 }, // 100 requests every 1 minute
+    ]),
   ],
   controllers: [AppController],
   providers: [
