@@ -9,15 +9,15 @@ export class AppLoggerService extends ConsoleLogger {
     const formattedEntry = `${Intl.DateTimeFormat('en-US', {
       dateStyle: 'short',
       timeStyle: 'short',
-      timeZone: 'Indonesia/Jakarta',
+      timeZone: 'Asia/Jakarta',
     }).format(new Date())}\t${entry}\n`;
 
     try {
-      if (!fs.existsSync(path.join(__dirname, '..', '..', 'logs'))) {
-        await fsPromises.mkdir(path.join(__dirname, '..', '..', 'logs'));
+      if (!fs.existsSync(path.join(__dirname, '..', '..', '..', 'logs'))) {
+        await fsPromises.mkdir(path.join(__dirname, '..', '..', '..', 'logs'));
       }
       await fsPromises.appendFile(
-        path.join(__dirname, '..', '..', 'logs', 'myLogFile.log'),
+        path.join(__dirname, '..', '..', '..', 'logs', 'appLogFile.log'),
         formattedEntry,
       );
     } catch (e) {

@@ -36,4 +36,3 @@ lerna-debug.log*
 
 # Custom Environment Variables
 .env
-/logs

@@ -14,7 +14,7 @@ import { AppLoggerModule } from './app-logger/app-logger.module';
     DatabaseModule,
     EmployeesModule,
     ThrottlerModule.forRoot([
-      { name: 'short', ttl: 1000, limit: 3 }, // 3 requests every 1 second
+      { name: 'short', ttl: 10000, limit: 3 }, // 3 requests every 1 second
       { name: 'long', ttl: 60000, limit: 100 }, // 100 requests every 1 minute
     ]),
     AppLoggerModule,
