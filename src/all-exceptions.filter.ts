@@ -38,7 +38,7 @@ export class AllExceptionsFilter extends BaseExceptionFilter {
       errorResponseObj.response = exception.getResponse();
     } else if (exception instanceof PrismaClientValidationError) {
       errorResponseObj.statusCode = 422;
-      errorResponseObj.response = exception.message.replaceAll(/\n/g, ' ');
+      errorResponseObj.response = exception.message.replaceAll(/\n/g, '');
     } else {
       errorResponseObj.statusCode = HttpStatus.INTERNAL_SERVER_ERROR;
       errorResponseObj.response = 'Internal Server Error';
